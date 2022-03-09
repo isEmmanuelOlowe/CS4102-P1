@@ -92,10 +92,6 @@ function Scene({points}: SceneProps) {
                 return <ControlPoint key={index} position={point} controlPoint={index === 0 || index == points.length - 1} />
             })
         }
-        <mesh>
-        <boxBufferGeometry />
-        <meshPhongMaterial />
-        </mesh>
         <ambientLight args={[0xff0000]} intensity={0.1} />
         <directionalLight position={[0, 2, 5]} intensity={1} />
         </>
@@ -112,8 +108,8 @@ interface ControlPointProps {
 }
 function ControlPoint({position, controlPoint = false}: ControlPointProps) {
   return (
-    <mesh visible userData={{ test: "hello" }} position={position} castShadow>
-      <sphereGeometry attach="geometry" args={[0.05, 0.05, 0.05]} />
+    <mesh visible position={position} castShadow>
+      <sphereGeometry attach="geometry" args={[0.5, 0.05, 0.05]} />
       <meshStandardMaterial
         attach="material"
         color={controlPoint? "blue": "red"}
@@ -138,12 +134,5 @@ function Line (props: props) {
             <bufferGeometry />
             <lineBasicMaterial color="hotpink"/>
         </line>
-    )
-}
-
-function PolyLine() {
-
-    return (
-        <></>
     )
 }

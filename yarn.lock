@@ -1762,6 +1762,11 @@
   dependencies:
     "@types/jest" "*"
 
+"@types/three@^0.138.0":
+  "integrity" "sha512-D8AoV7h2kbCfrv/DcebHOFh1WDwyus3HdooBkAwcBikXArdqnsQ38PQ85JCunnvun160oA9jz53GszF3zch3tg=="
+  "resolved" "https://registry.npmjs.org/@types/three/-/three-0.138.0.tgz"
+  "version" "0.138.0"
+
 "@types/yargs-parser@*":
   "integrity" "sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw=="
   "resolved" "https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz"
