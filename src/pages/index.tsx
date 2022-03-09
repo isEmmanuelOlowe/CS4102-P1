@@ -1,3 +1,4 @@
+//  @ts-nocheck
 import { useEffect,useRef, useState } from 'react';
 
 import Layout from '@/components/layout/Layout';
@@ -94,9 +95,7 @@ export default function HomePage() {
   }
   return (
     <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      <Seo />
-
+      <Seo templateTitle='Bezier Curves 2D' />
       <main>
         <section className='fixed top-0 flex w-screen bg-red-300'>
           <h1 className='p-5 font-serif text-center font-thin'>Bézier Curves 2D</h1>

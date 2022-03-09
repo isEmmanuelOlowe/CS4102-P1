@@ -6675,7 +6675,7 @@
   "resolved" "https://registry.npmjs.org/three-mesh-bvh/-/three-mesh-bvh-0.5.5.tgz"
   "version" "0.5.5"
 
-"three-stdlib@^2.8.7":
+"three-stdlib@^2.8.7", "three-stdlib@^2.8.8":
   "integrity" "sha512-M178LLexkFajq4/HfLNchpHRYgDGFL5qrv0bO3fkr0JN3+fUvEbml7kFgmiQ1ohZeYbSl2cwWN3MxHb+e2sf5w=="
   "resolved" "https://registry.npmjs.org/three-stdlib/-/three-stdlib-2.8.8.tgz"
   "version" "2.8.8"
