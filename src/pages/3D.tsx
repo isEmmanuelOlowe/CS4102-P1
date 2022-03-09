@@ -1,9 +1,8 @@
 // @ts-nocheck
 import {Canvas, useFrame, useThree} from "@react-three/fiber";
 import Link from "next/link";
-import { FormEvent, useEffect,useRef, useState } from 'react';
+import { FormEvent,useRef, useState } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 import Layout from '@/components/layout/Layout';
 
@@ -13,7 +12,7 @@ import { computePoints } from ".";
 const deg2rad = (degrees: number) => degrees * (Math.PI / 180);
 // Extend will make OrbitControls available as a JSX element called orbitControls for us to use.
 // extend({ OrbitControls });
-export default function bezier3D() {
+export default function Bezier3D() {
     const [points, setPoints] = useState<number[][]>([]);
     const [coord, setCoord] = useState<string[]>(["","",""]);
     const [warning, setWarning] = useState(false);
@@ -151,19 +150,3 @@ function Line ({start, end, hull=false}: LineProps) {
     )
 }
 
-const CameraController = () => {
-  const { camera, gl } = useThree();
-  useEffect(
-    () => {
-      const controls = new OrbitControls(camera, gl.domElement);
-
-      controls.minDistance = 3;
-      controls.maxDistance = 20;
-      return () => {
-        controls.dispose();
-      };
-    },
-    [camera, gl]
-  );
-  return null;
-};
