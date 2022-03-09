@@ -33,7 +33,7 @@ export default function Bezier3D() {
     return (<Layout>
         <Seo templateTitle="Bezier Curves 3D"/>
         <main>
-            <section className="fixed top-0 flex w-screen py-2 pl-2 text-gray-100 bg-gray-800">
+            <section className="fixed top-0 flex w-screen py-2 pl-2 text-gray-100 bg-gray-800 z-50">
                 <Link href="/"><a><h1 className='font-thin'>Bézier Curves 3D</h1></a></Link>
             </section>
             <section className='w-screen h-screen flex flex-wrap'>
