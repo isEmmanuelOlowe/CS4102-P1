@@ -74,36 +74,35 @@ interface SceneProps {
 }
 function Scene({points}: SceneProps) {
      useThree(({camera}) => {
-    camera.rotation.set(deg2rad(20), 0, 0);
+    camera.rotation.set(deg2rad(0), deg2rad(0), deg2rad(0));
   });
     return (
         <>
-        <ambientLight intensity={0.2} />
+        <ambientLight intensity={0.3} />
         <directionalLight />
-        {
-            computePoints(1000, points).map((point, index, curvePoints) => {
-                if (index != curvePoints.length - 1 && curvePoints.length > 1) {
-                    return <Line key={index} start={point} end={curvePoints[index + 1]}/>
-                }
-            })
-        }
         {
             points.map((point, index) => {
                 return <ControlPoint key={index} position={point} controlPoint={index === 0 || index == points.length - 1} />
             })
         }
-        <mesh>
-        <boxBufferGeometry />
-        <meshPhongMaterial />
-        </mesh>
-        <ambientLight args={[0xff0000]} intensity={0.1} />
+        {
+            points.map((point, index) => {
+                if (index != points.length - 1 && points.length > 1) {
+                    return <Line key={index} start={point} end={points[index + 1]} hull={true}/>
+                }
+            }) 
+        }
+        {
+            computePoints(100, points).map((point, index, curvePoints) => {
+                if (index != curvePoints.length - 1 && curvePoints.length > 1) {
+                    return <Line key={index} start={point} end={curvePoints[index + 1]} hull={false}/>
+                }
+            })
+        }
+        <ambientLight args={[0xff0000]} intensity={0.2} />
         <directionalLight position={[0, 2, 5]} intensity={1} />
         </>
         )
-}
-type props = {
-    start: number[],
-    end: number[]
 }
 
 interface ControlPointProps {
@@ -111,39 +110,42 @@ interface ControlPointProps {
     controlPoint: boolean,
 }
 function ControlPoint({position, controlPoint = false}: ControlPointProps) {
-  return (
-    <mesh visible userData={{ test: "hello" }} position={position} castShadow>
-      <sphereGeometry attach="geometry" args={[0.05, 0.05, 0.05]} />
+    return (
+    <mesh visible position={position} >
+      <sphereGeometry attach="geometry" args={[0.05, 32, 32]} />
       <meshStandardMaterial
         attach="material"
         color={controlPoint? "blue": "red"}
         transparent
-        roughness={0.1}
-        metalness={0.1}
-      />
+        roughness={0.01}
+        metalness={0.01}
+        />
     </mesh>
   );
 }
+type LineProps = {
+    start: number[],
+    end: number[],
+    hull: boolean
+}
 
-function Line (props: props) {
+function Line ({start, end, hull=false}: LineProps) {
     const ref = useRef<THREE.Line>()
-
+    
     useFrame(() => {
         if(ref.current){
-            ref.current.geometry.setFromPoints([props.start, props.end].map((point) => new THREE.Vector3(...point)));
+            ref.current.geometry.setFromPoints([start, end].map((point) => new THREE.Vector3(...point)));
         }
     })
     return (
         <line ref={ref}>
             <bufferGeometry />
-            <lineBasicMaterial color="hotpink"/>
+            {
+                hull?
+                <lineDashedMaterial color="white" gapSize={3} dashSize={3}/>:
+                <lineBasicMaterial color="hotpink"/>
+
+            }
         </line>
-    )
-}
-
-function PolyLine() {
-
-    return (
-        <></>
     )
 }
