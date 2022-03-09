@@ -1,5 +1,6 @@
 // @ts-nocheck
 import {Canvas, useFrame, useThree} from "@react-three/fiber";
+import Link from "next/link";
 import { FormEvent, useEffect,useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
@@ -30,7 +31,7 @@ export default function bezier3D() {
     return (<Layout>
         <main>
             <section className="fixed top-0 flex w-screen py-2 pl-2 text-gray-100 bg-gray-800">
-                <h1 className='font-thin'>Bézier Curves 3D</h1>
+                <Link href="/"><h1 className='font-thin'>Bézier Curves 3D</h1><a></a></Link>
             </section>
             <section className='w-screen h-screen flex flex-wrap'>
                 <div className="w-[80%] h-full">

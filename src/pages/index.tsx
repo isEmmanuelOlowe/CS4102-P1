@@ -1,4 +1,5 @@
 //  @ts-nocheck
+import Link from 'next/link';
 import { useEffect,useRef, useState } from 'react';
 
 import Layout from '@/components/layout/Layout';
@@ -98,7 +99,7 @@ export default function HomePage() {
       <Seo templateTitle='Bezier Curves 2D' />
       <main>
         <section className='fixed top-0 flex w-screen bg-red-300'>
-          <h1 className='p-5 font-serif text-center font-thin'>Bézier Curves 2D</h1>
+          <Link href="/3D"><a><h1 className='p-5 font-serif text-center font-thin' onClick>Bézier Curves 2D</h1></a></Link>
           <button className="px-5 duration-200 ease-in-out bg-teal-300 lg:px-20 hover:bg-teal-400" onClick={()=> setPoints([])}>Clear</button>
           <button className={`lg:px-20 px-5 ${add? "bg-orange-300 hover:bg-orange-400": "bg-purple-300 hover:bg-purple-400"} ease-in-out duration-200`} onClick={()=> setAdd(!add)}>{add? "Remove": "Drag"}</button>
           <button className={`lg:px-20 px-5 ${pertrube? "bg-yellow-400 hover:bg-yellow-500": "bg-green-200 hover:bg-green-300"} ease-in-out duration-200`} onClick={()=> showChanges()}>{pertrube? "Modify": "Pertube"}</button>
