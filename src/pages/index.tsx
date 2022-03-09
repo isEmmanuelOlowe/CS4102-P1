@@ -1,10 +1,7 @@
+import { useEffect,useRef, useState } from 'react';
+
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
-import { useState, useRef, useEffect } from 'react';
 
 /**
  * SVGR Support
@@ -13,7 +10,6 @@ import { useState, useRef, useEffect } from 'react';
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
-import Vercel from '~/svg/Vercel.svg';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -103,7 +99,7 @@ export default function HomePage() {
 
       <main>
         <section className='fixed top-0 flex w-screen bg-red-300'>
-          <h1 className='p-5 font-serif text-center'>Bézier Curves 2D</h1>
+          <h1 className='p-5 font-serif text-center font-thin'>Bézier Curves 2D</h1>
           <button className="px-5 duration-200 ease-in-out bg-teal-300 lg:px-20 hover:bg-teal-400" onClick={()=> setPoints([])}>Clear</button>
           <button className={`lg:px-20 px-5 ${add? "bg-orange-300 hover:bg-orange-400": "bg-purple-300 hover:bg-purple-400"} ease-in-out duration-200`} onClick={()=> setAdd(!add)}>{add? "Remove": "Drag"}</button>
           <button className={`lg:px-20 px-5 ${pertrube? "bg-yellow-400 hover:bg-yellow-500": "bg-green-200 hover:bg-green-300"} ease-in-out duration-200`} onClick={()=> showChanges()}>{pertrube? "Modify": "Pertube"}</button>
@@ -173,7 +169,7 @@ interface pair {
   p2: number[]
 }
 
-function computePoints(scale: number, points: number[][]): number[][] {
+export function computePoints(scale: number, points: number[][]): number[][] {
   const values: number[][] = [];
   for (let i = 0; i <= scale; i++) {
     values.push(curveFunction(points, i/scale));
