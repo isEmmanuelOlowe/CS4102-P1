@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {Canvas, useFrame, useThree} from "@react-three/fiber";
 import { FormEvent, useEffect,useRef, useState } from 'react';
 import * as THREE from 'three';
