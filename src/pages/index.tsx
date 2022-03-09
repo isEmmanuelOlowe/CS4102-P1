@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import Link from 'next/link';
 import { useEffect,useRef, useState } from 'react';
@@ -163,10 +164,6 @@ function EndPointCircle({position, onMouseDown, pertrube=false}: any) {
     return (
     <circle onMouseDown={onMouseDown} cx={position[0]} cy={position[1]} r={8} fill={pertrube? "rgb(100, 20, 60)" :"rgb(50, 50, 50)"} stroke="rgb(255, 255, 255)" strokeWidth={3} style={{cursor:"-webkit-grab"}}/>
   )
-}
-interface pair {
-  p1: number[]
-  p2: number[]
 }
 
 export function computePoints(scale: number, points: number[][]): number[][] {

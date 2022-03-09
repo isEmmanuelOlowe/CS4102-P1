@@ -20,9 +20,6 @@
     },
     "incremental": true
   },
-  "rules": {
-    "@typescript-eslint/ban-ts-comment": "off"
-  },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
