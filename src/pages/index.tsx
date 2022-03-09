@@ -208,8 +208,10 @@ function choose(n: number , r: number) {
   }
 }
 
+// computes the bezier curve
 function curveFunction(p: number[][], u: number): number[] {
-  const value: number[] = [0, 0];
+  // Zero fill for 2D and 3D
+  const value: number[] = p[0] ? new Array(p[0].length).fill(0): []
   for (let i = 0; i < p.length; i++) {
     for (let j = 0; j < p[i].length; j++){
       value[j] += choose(p.length - 1, i) * u ** i * (1 - u) ** (p.length - 1 - i) * p[i][j];
