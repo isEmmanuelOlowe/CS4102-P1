@@ -22,7 +22,7 @@ export default function Bezier3D() {
     const [warning, setWarning] = useState(false);
     const [fixedCurve, setFixedCurve] = useState<number[][]>([]);
     const [pertrube, setPertrube] = useState(false);
-    const [connection, setConnection] = useState(true);
+    const [connection, setConnection] = useState(false);
     function handleSubmit(e: FormEvent) {
         e.preventDefault();
         if (!isNaN(parseFloat(coord[0])) && !isNaN(parseFloat(coord[1])) && !isNaN(parseFloat(coord[2]))) {
